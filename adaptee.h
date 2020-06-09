@@ -24,24 +24,24 @@ public:
 		}
 	}
 
-	//¥[¤J¤@­Ó­È ¦¨¥\result³]¦¨1  ¥¢±Ñresult³]¦¨0
+	//åŠ å…¥ä¸€å€‹å€¼ æˆåŠŸresultè¨­æˆ1  å¤±æ•—resultè¨­æˆ0
 	void remove(const book value, int& result)
 	{
 		auto f = mapbook.find(*(value.bookName));
 		if (f == mapbook.end())
 		{
-			//cout << "¨S§ä¨ì " << *(value.bookName) << endl;
+			//cout << "æ²’æ‰¾åˆ° " << *(value.bookName) << endl;
 			result = 0;
 		}
 		else
 		{
-			//cout << "§R°£ " << *(value.bookName) << endl;
+			//cout << "åˆªé™¤ " << *(value.bookName) << endl;
 			mapbook.erase(f);
 			result = 1;
 		}
 	}
 
-	//§R°£¤@­Ó­È ¦¨¥\result³]¦¨1  ¥¢±Ñresult³]¦¨0
+	//åˆªé™¤ä¸€å€‹å€¼ æˆåŠŸresultè¨­æˆ1  å¤±æ•—resultè¨­æˆ0
 	void find(const char* bookName, book*& ptr)
 	{
 		auto f = mapbook.find(bookName);
@@ -109,7 +109,7 @@ public:
 
 	float average()
 	{
-		float sum = 0.0f;
+		float sum = 0;
 		int count = 0;
 		auto it = mapbook.begin();
 
@@ -128,8 +128,8 @@ public:
 		mapbook.clear();
 	}
 
-	//¬d¸ß¤@­Ó­È   ¦¨¥\ «ü¼Ğptr«ü¨ìtableªº­È
-	//¥¢±Ñ «ü¼Ğptr³]¦¨0
+	//æŸ¥è©¢ä¸€å€‹å€¼   æˆåŠŸ æŒ‡æ¨™ptræŒ‡åˆ°tableçš„å€¼
+	//å¤±æ•— æŒ‡æ¨™ptrè¨­æˆ0
 };
 
 
@@ -157,24 +157,24 @@ public:
 		}
 	}
 
-	//¥[¤J¤@­Ó­È ¦¨¥\result³]¦¨1  ¥¢±Ñresult³]¦¨0
+	//åŠ å…¥ä¸€å€‹å€¼ æˆåŠŸresultè¨­æˆ1  å¤±æ•—resultè¨­æˆ0
 	void remove(const book value, int& result)
 	{
 		auto f = multiMapBook.find(*(value.bookName));
 		if (f == multiMapBook.end())
 		{
-			//cout << "¨S§ä¨ì " << *(value.bookName) << endl;
+			//cout << "æ²’æ‰¾åˆ° " << *(value.bookName) << endl;
 			result = 0;
 		}
 		else
 		{
-			//cout << "§R°£ " << *(value.bookName) << endl;
+			//cout << "åˆªé™¤ " << *(value.bookName) << endl;
 			multiMapBook.erase(f);
 			result = 1;
 		}
 	}
 
-	//§R°£¤@­Ó­È ¦¨¥\result³]¦¨1  ¥¢±Ñresult³]¦¨0
+	//åˆªé™¤ä¸€å€‹å€¼ æˆåŠŸresultè¨­æˆ1  å¤±æ•—resultè¨­æˆ0
 	void find(const char* bookName, book*& ptr)
 	{
 		auto f = multiMapBook.find(bookName);
@@ -242,7 +242,7 @@ public:
 
 	float average()
 	{
-		float sum = 0.0f;
+		float sum = 0;
 		int count = 0;
 		auto it = multiMapBook.begin();
 
@@ -274,8 +274,7 @@ private:
 public:
 	void add(const book value, int& result)
 	{
-		auto it = std::find_if(vectorBook.begin(), vectorBook.end(),
-			[&value](const std::pair<std::string, book>& element) { return element.first == *value.bookName; });
+		auto it = std::find_if(vectorBook.begin(), vectorBook.end(),[&value](const std::pair<std::string, book>& element) { return element.first == *value.bookName; });
 		if (it == vectorBook.end())
 		{
 			result = 1;
@@ -287,25 +286,24 @@ public:
 		}
 	}
 
-	//¥[¤J¤@­Ó­È ¦¨¥\result³]¦¨1  ¥¢±Ñresult³]¦¨0
+	//åŠ å…¥ä¸€å€‹å€¼ æˆåŠŸresultè¨­æˆ1  å¤±æ•—resultè¨­æˆ0
 	void remove(const book value, int& result)
 	{
-		auto f = std::find_if(vectorBook.begin(), vectorBook.end(),
-			[&value](const std::pair<std::string, book>& element) { return element.first == *value.bookName; });
+		auto f = std::find_if(vectorBook.begin(), vectorBook.end(),[&value](const std::pair<std::string, book>& element) { return element.first == *value.bookName; });
 		if (f == vectorBook.end())
 		{
-			//cout << "¨S§ä¨ì " << *(value.bookName) << endl;
+			//cout << "æ²’æ‰¾åˆ° " << *(value.bookName) << endl;
 			result = 0;
 		}
 		else
 		{
-			//cout << "§R°£ " << *(value.bookName) << endl;
+			//cout << "åˆªé™¤ " << *(value.bookName) << endl;
 			vectorBook.erase(f);
 			result = 1;
 		}
 	}
 
-	//§R°£¤@­Ó­È ¦¨¥\result³]¦¨1  ¥¢±Ñresult³]¦¨0
+	//åˆªé™¤ä¸€å€‹å€¼ æˆåŠŸresultè¨­æˆ1  å¤±æ•—resultè¨­æˆ0
 	void find(const char* bookName, book*& ptr)
 	{
 		auto it = std::find_if(vectorBook.begin(), vectorBook.end(),
@@ -375,7 +373,7 @@ public:
 
 	float average()
 	{
-		float sum = 0.0f;
+		float sum = 0;
 		int count = 0;
 		auto it = vectorBook.begin();
 
